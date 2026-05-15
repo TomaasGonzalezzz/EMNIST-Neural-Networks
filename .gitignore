@@ -1,0 +1,25 @@
+# Entorno local
+.venv/
+venv/
+env/
+
+# Dataset local pesado: GitHub normal no acepta archivos >100 MB
+Datasets/
+
+# Python/Jupyter generado
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Caches y archivos temporales
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.tmp
+*.log
+
+# Sistema operativo / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
