@@ -1,0 +1,19 @@
+# TP3 - dependencias usadas para correr el notebook.
+# La version de PyTorch es CPU para que funcione sin placa NVIDIA.
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# Base numerica y tablas.
+numpy==2.4.4
+pandas==3.0.3
+
+# Graficos del notebook.
+matplotlib==3.10.9
+seaborn==0.13.2
+
+# Jupyter: abrir, ejecutar y registrar kernel.
+ipykernel==7.2.0
+notebook==7.5.6
+nbconvert==7.17.1
+
+# Punto 4 en PyTorch.
+torch==2.12.0+cpu

@@ -1,0 +1,7 @@
+entrega_original/** -text
+*.npz binary
+*.pdf binary
+*.png binary
+README.md text eol=lf
+docs/procedencia.json text eol=lf
+docs/verificacion_basica.json text eol=lf

@@ -1,0 +1,221 @@
+{
+  "descripcion": "Se conserva la versión publicada del repositorio en la raíz y se añade la entrega del ZIP sin modificaciones en entrega_original/. Se excluye el directorio .git del ZIP (metadata e historial local). Dataset original distribuido como adjunto de release, sin incorporarlo al historial Git.",
+  "fuentes": [
+    {
+      "archivo": "Gonzalez_Tomas_TP3.zip",
+      "sha256": "6330f2a604dfed92315d676544179160e8212b73af721d57e6b3686d9cf3a75b"
+    },
+    {
+      "archivo": "Trabajo Práctico 3-20261028.zip",
+      "sha256": "2ef5944fa478bb80159dd06be45b91796008ff9e1f6d08b64a57b2f74bc192d1"
+    }
+  ],
+  "archivos_originales": [
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/artifacts/finalists_100/finalists_100_summary.csv",
+      "archivo_repositorio": "entrega_original/artifacts/finalists_100/finalists_100_summary.csv",
+      "sha256": "61b42ada6e3ed01a879f0943a0ef25a4890c518651263a3c74a8f2be61fc7c6d"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/artifacts/grid_v2_experiment_summary.csv",
+      "archivo_repositorio": "entrega_original/artifacts/grid_v2_experiment_summary.csv",
+      "sha256": "4a9ab48ed311660a5c03519c4ead3c9d118e879ea4b2b13f21ba89befb4dc0f6"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/artifacts/m0_history.npz",
+      "archivo_repositorio": "entrega_original/artifacts/m0_history.npz",
+      "sha256": "7f76c1fe69d3aec573178d0194e5631e056d913990fa7b1318683470a03b6eeb"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/artifacts/m0_metrics.npz",
+      "archivo_repositorio": "entrega_original/artifacts/m0_metrics.npz",
+      "sha256": "16b5c029d2399dc9d2b8cdb003c6ea32a9983c61a87b8d02b23d3c68aada0697"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/artifacts/m0_parameters.npz",
+      "archivo_repositorio": "entrega_original/artifacts/m0_parameters.npz",
+      "sha256": "b957a6b2788f644ba1d0313f33e0ef6421935093fe6713f2909d0d3350a0c15d"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/artifacts/m1_history.npz",
+      "archivo_repositorio": "entrega_original/artifacts/m1_history.npz",
+      "sha256": "c6b5192ca9efe19a66e23a347bcee00f37fbc5f8e1900e76c3695ae33f924613"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/artifacts/m1_metrics.npz",
+      "archivo_repositorio": "entrega_original/artifacts/m1_metrics.npz",
+      "sha256": "5dd50e2e12425c3de2d1cf186d5d1568b801f54447f1e7866dc2e7819d7431ff"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/artifacts/m1_parameters.npz",
+      "archivo_repositorio": "entrega_original/artifacts/m1_parameters.npz",
+      "sha256": "38e1892e2f34745ac5f2756ee6f86df78b138c3e709a4937b8c32d62c2163f90"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/artifacts/m2_history.npz",
+      "archivo_repositorio": "entrega_original/artifacts/m2_history.npz",
+      "sha256": "c8271b2b8c0437e7b09dcdad0349cec2d51afb3672620f8ac3f2307d810866f6"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/artifacts/m2_metrics.npz",
+      "archivo_repositorio": "entrega_original/artifacts/m2_metrics.npz",
+      "sha256": "a9d4f211596018213902cac36c4c332aabab704012a227ea33e40556d6e7a24e"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/artifacts/m3_history.npz",
+      "archivo_repositorio": "entrega_original/artifacts/m3_history.npz",
+      "sha256": "8360297811ccd9f5b4fa9774b19a5894b4fa04f29d87e2a67a11c328c070b8f2"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/artifacts/m3_metrics.npz",
+      "archivo_repositorio": "entrega_original/artifacts/m3_metrics.npz",
+      "sha256": "def3534cda7f1ed378c3f9cbdf9bee3c162d7598f196e7e478534c2173c29480"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/artifacts/point4_noise_robustness.csv",
+      "archivo_repositorio": "entrega_original/artifacts/point4_noise_robustness.csv",
+      "sha256": "6cc64ed8fa4f1a98624e801ecbbe7c75148d57842be15e42621dae48b9855a4b"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/artifacts/point4_test_confusion_matrices.npz",
+      "archivo_repositorio": "entrega_original/artifacts/point4_test_confusion_matrices.npz",
+      "sha256": "022e12627500b48d400b7656b086cc55bfdbdc0fc467d5c6ec97121c2c94530e"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/artifacts/point4_test_summary.csv",
+      "archivo_repositorio": "entrega_original/artifacts/point4_test_summary.csv",
+      "sha256": "1fac44a128e9bef06a34d979034a40d135c67df14482e9a3da93d03fe3e91303"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/artifacts/torch_grid_v1_experiment_summary.csv",
+      "archivo_repositorio": "entrega_original/artifacts/torch_grid_v1_experiment_summary.csv",
+      "sha256": "aca837d59d44416f220c1e7fd699c6dcf2761218e624b3b67c9c93de77950c2c"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/Entrega_TP3.ipynb",
+      "archivo_repositorio": "entrega_original/Entrega_TP3.ipynb",
+      "sha256": "2593904ec02a4265e836fd90f8957ef6c9da403a74fa442b4517f4d86d0900c7"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/README.md",
+      "archivo_repositorio": "entrega_original/README.md",
+      "sha256": "2cf29585751888b401ade6eeddf82f968f5dd87522f68c5c2f8d322627e0f9a3"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/requirements.txt",
+      "archivo_repositorio": "entrega_original/requirements.txt",
+      "sha256": "67b76f13c4539357b1bd77f918b93438ea2109c37adc39831c9026c21803f9a4"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/scripts/run_point4_artifacts.py",
+      "archivo_repositorio": "entrega_original/scripts/run_point4_artifacts.py",
+      "sha256": "69d4a67d5a675d788f1d135d040b77d1295b3fa483cfd6f8c832380cb75c351b"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/src/data.py",
+      "archivo_repositorio": "entrega_original/src/data.py",
+      "sha256": "86032e4898f7a23f014a2dadf89470f61b6bd979317ff22bf176402dfe1334c2"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/src/experiments.py",
+      "archivo_repositorio": "entrega_original/src/experiments.py",
+      "sha256": "832385ed1fc616c4411590afb306e93a91c648532f8322de103c482e0d00a88e"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/src/metrics.py",
+      "archivo_repositorio": "entrega_original/src/metrics.py",
+      "sha256": "69c3b8dee1b132b16a3422d52856369118baa0e8190fdb9d28ad80bc13285e68"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/src/models.py",
+      "archivo_repositorio": "entrega_original/src/models.py",
+      "sha256": "c4e46f6356bcfc492f6e90dbe3cd8c17f5a70b34082024bf83317e72db460e1e"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/src/plots.py",
+      "archivo_repositorio": "entrega_original/src/plots.py",
+      "sha256": "55052fa0f77429aaac11910a827e03547052c604a83e25727734c0f67fe290d7"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/src/torch_experiments.py",
+      "archivo_repositorio": "entrega_original/src/torch_experiments.py",
+      "sha256": "0a9b0b9e54d3ee14760943a9580adf22391b4c37b34203dcbd99396f60a247ff"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/src/torch_models.py",
+      "archivo_repositorio": "entrega_original/src/torch_models.py",
+      "sha256": "18e9e236956d079fd9754e4f778a81d841a974b1ed72c1ceff3d55c3de63b01e"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/src/torch_training.py",
+      "archivo_repositorio": "entrega_original/src/torch_training.py",
+      "sha256": "bf1b26b30cdeb4254eff848b20e114340f4adfb9add560cd0a74440e62c48c1d"
+    },
+    {
+      "fuente": "Gonzalez_Tomas_TP3.zip",
+      "archivo_zip": "Gonzalez_Tomas_TP3/src/training.py",
+      "archivo_repositorio": "entrega_original/src/training.py",
+      "sha256": "8c6056b0e23c8ab3b9fdd63ac88f0c1f31e66b109ff46a6a939c265480845bc8"
+    },
+    {
+      "fuente": "Trabajo Práctico 3-20261028.zip",
+      "archivo_zip": "I302__Machine_Learning_TP03.pdf",
+      "archivo_repositorio": "docs/consigna.pdf",
+      "sha256": "2a321d46d66d3daefbec6ebf22bddac8904ef9510ca8c68f1e3a472f345cf1f4"
+    }
+  ],
+  "dataset_release": {
+    "archivo": "I302_ML_TP3_datasets.zip",
+    "bytes": 205257405,
+    "sha256": "ce07a5be0f11558cdf84700bfa9d1bc08bcb7c570bfcfc0a4891e328b02e620c",
+    "url": "https://github.com/TomaasGonzalezzz/TP3_Machine_Learning/releases/download/tp3-datasets-2026/I302_ML_TP3_datasets.zip",
+    "arrays": [
+      {
+        "archivo_zip": "I302 ML 2025 2do semestre TP3_ datasets/X_images.npy",
+        "archivo_local": "Datasets/X_images.npy",
+        "bytes": 634691248,
+        "sha256": "be38c6184e72bc4a8c7f3c18d813d95de6d612d597026e0dacf9d4b2574b0b85"
+      },
+      {
+        "archivo_zip": "I302 ML 2025 2do semestre TP3_ datasets/y_images.npy",
+        "archivo_local": "Datasets/y_images.npy",
+        "bytes": 809683,
+        "sha256": "4b28a3966876dfc0f55c38100ab88bc24a606a59194f647750d175c3aa4aab03"
+      },
+      {
+        "archivo_zip": "I302 ML 2025 2do semestre TP3_ datasets/X_COMP.npy",
+        "archivo_local": "Datasets/X_COMP.npy",
+        "bytes": 3684928,
+        "sha256": "b4d0bb6eca64d4dd199e684f154eb953e0c8507148f8b1276d06db77a29cfbd0"
+      }
+    ]
+  }
+}

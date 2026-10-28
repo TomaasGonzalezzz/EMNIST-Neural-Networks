@@ -1,0 +1,86 @@
+{
+  "alcance": "Comprobaciones de la entrega original del ZIP: MLP NumPy con forward normalizado y gradiente contrastado por diferencias finitas en una red sintética pequeña; carga segura de dataset con allow_pickle=False; cobertura y separación del split estratificado; parámetros M0/M1 numéricos finitos. No se ejecutaron entrenamientos EMNIST ni PyTorch.",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "max_error_absoluto_gradiente": 8.370962256698533e-11,
+  "dataset": {
+    "shape_X": [
+      809555,
+      28,
+      28
+    ],
+    "dtype_X": "uint8",
+    "shape_y": [
+      809555
+    ],
+    "dtype_y": "uint8",
+    "clases": 47,
+    "split_tamanos": [
+      566667,
+      121410,
+      121478
+    ]
+  },
+  "parametros": {
+    "m0_parameters.npz": {
+      "W1": [
+        784,
+        128
+      ],
+      "b1": [
+        1,
+        128
+      ],
+      "W2": [
+        128,
+        64
+      ],
+      "b2": [
+        1,
+        64
+      ],
+      "W3": [
+        64,
+        47
+      ],
+      "b3": [
+        1,
+        47
+      ]
+    },
+    "m1_parameters.npz": {
+      "W1": [
+        784,
+        512
+      ],
+      "b1": [
+        1,
+        512
+      ],
+      "W2": [
+        512,
+        256
+      ],
+      "b2": [
+        1,
+        256
+      ],
+      "W3": [
+        256,
+        128
+      ],
+      "b3": [
+        1,
+        128
+      ],
+      "W4": [
+        128,
+        47
+      ],
+      "b4": [
+        1,
+        47
+      ]
+    }
+  }
+}

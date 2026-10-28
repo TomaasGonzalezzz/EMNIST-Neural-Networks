@@ -1,197 +1,140 @@
-# TP3 - Machine Learning y Deep Learning
+# Reconocimiento de caracteres manuscritos · Redes neuronales
 
-Este repositorio contiene mi entrega del TP3. La idea es que el profesor pueda
-abrir primero el notebook, seguir el razonamiento de punta a punta, y despues
-mirar el codigo de soporte si quiere revisar como esta implementado cada paso.
+Trabajo práctico individual de **I302 — Aprendizaje Automático y Aprendizaje Profundo**,
+Universidad de San Andrés, primer semestre de 2026. **Autor: Tomás González.**
 
-La entrega principal es:
+MLP implementado con NumPy, mejoras del entrenamiento y comparación con redes en
+PyTorch sobre **EMNIST ByMerge**: 809.555 imágenes de 28 × 28 píxeles y 47 clases.
 
-```text
-Entrega_TP3.ipynb
-```
+![Comparación final de modelos en test, extraída de la entrega original](assets/comparacion-test.png)
 
-Ese notebook es el relato completo del trabajo: carga de datos, baseline en
-NumPy, mejoras de training, seleccion de modelos, parte PyTorch, comparacion en
-test y analisis de robustness ante noise.
+## Documentación y versiones
 
-## Como leer el TP
+- [Consigna original](docs/consigna.pdf).
+- [Notebook de la versión previamente publicada](Entrega_TP3.ipynb).
+- [Notebook de la entrega recibida en ZIP](entrega_original/Entrega_TP3.ipynb).
+- [README de esa entrega](entrega_original/README.md), incluida su declaración sobre
+  asistencia de IA en gráficos y presentación.
+- [README previo del repositorio](docs/README_repositorio_previo.md).
 
-El orden recomendado es este:
+Este repositorio ya existía al incorporar los archivos de la entrega. Se conserva
+su historial y el código de la raíz; la versión del ZIP se guarda sin modificaciones
+en `entrega_original/`, porque contiene diferencias respecto de lo publicado.
+Para analizar una versión, usar su notebook, código y artifacts en conjunto.
+La metadata `.git` incluida en el ZIP se excluyó de la copia archivada.
 
-1. Abrir `Entrega_TP3.ipynb`.
-2. Leerlo de arriba hacia abajo. El notebook esta pensado como una secuencia
-   narrativa, no como celdas sueltas.
-3. Los graficos y tablas ya estan ejecutados. No hace falta reentrenar modelos
-   para corregir el analisis.
-4. Si se quiere revisar implementacion, mirar `src/` siguiendo el mapa de abajo.
-5. Si se quiere regenerar los experimentos pesados, mirar la seccion
-   "Como volver a entrenar".
+## Dataset original
 
-Los nombres de funciones y auxiliares estan en espanol. Las palabras propias de
-la materia quedan en ingles: `train`, `validation`, `test`, `loss`, `accuracy`,
-`F1 macro`, `learning_rate`, `optimizer`, `batch_size`, `Dropout`, `BatchNorm`,
-`early_stopping`, `forward`, `backward`, etc.
+[Descargar I302_ML_TP3_datasets.zip desde la release](https://github.com/TomaasGonzalezzz/TP3_Machine_Learning/releases/download/tp3-datasets-2026/I302_ML_TP3_datasets.zip)
 
-## Estructura de archivos
+El ZIP original pesa aproximadamente **205 MB** y contiene `X_images.npy`,
+`y_images.npy` y `X_COMP.npy`. La matriz de imágenes ocupa unos 635 MB sin comprimir;
+los datos se distribuyen como adjunto de release, fuera del historial Git.
 
-```text
-.
-+-- Entrega_TP3.ipynb
-+-- requirements.txt
-+-- Datasets/
-|   +-- X_images.npy
-|   +-- y_images.npy
-+-- artifacts/
-+-- src/
-|   +-- data.py
-|   +-- metrics.py
-|   +-- models.py
-|   +-- training.py
-|   +-- experiments.py
-|   +-- torch_models.py
-|   +-- torch_training.py
-|   +-- torch_experiments.py
-|   +-- plots.py
-+-- scripts/
-    +-- run_point4_artifacts.py
-```
+1. Descargar y extraer el ZIP.
+2. Copiar `X_images.npy` y `y_images.npy` desde su carpeta interna a `Datasets/`.
+3. Para ejecutar la versión archivada, colocarlos en `entrega_original/Datasets/`.
+   `X_COMP.npy` también se conserva en el ZIP; el cargador principal utiliza los otros dos.
 
-## Que hay en cada carpeta
+Los datos provienen del material de la cátedra. Los hashes SHA-256 del ZIP y de
+los tres arrays están en [docs/procedencia.json](docs/procedencia.json).
+`Datasets/` está excluida de Git para evitar agregar los archivos pesados.
 
-`Datasets/` tiene los datos originales en formato NumPy:
+## Recorrido del trabajo
 
-- `X_images.npy`: imagenes EMNIST ByMerge de `28 x 28`.
-- `y_images.npy`: labels numericos de las `47` clases.
+1. Analizar las imágenes y clases, dividir en train/validation/test y normalizar píxeles.
+2. Implementar un MLP con ReLU, softmax, cross-entropy y backpropagation: baseline **M0**.
+3. Incorporar mini-batches, schedules, Adam, L2 y early stopping; seleccionar **M1**.
+4. Replicar la arquitectura de M1 en PyTorch para obtener **M2**.
+5. Explorar activaciones, BatchNorm, Dropout y arquitecturas PyTorch para seleccionar **M3**.
+6. Comparar los cuatro modelos en test y evaluar su degradación ante ruido gaussiano.
 
-`artifacts/` tiene resultados ya guardados para que el notebook sea liviano de
-correr. Son archivos compactos: histories, metrics, parametros NumPy y summaries.
-Sirven para mostrar graficos y tablas sin volver a entrenar todo.
+En la entrega recibida, el split estratificado contiene **566.667 imágenes de train,
+121.410 de validation y 121.478 de test**. M1 y M2 utilizan la arquitectura
+`784 → 512 → 256 → 128 → 47`.
 
-`src/` tiene el codigo reutilizable:
+## Resultados guardados de la entrega
 
-- `data.py`: carga de datos, resumen del dataset y split estratificado.
-- `metrics.py`: `accuracy` y `F1 macro` desde la `confusion matrix`.
-- `models.py`: MLP en NumPy (`ClasificadorMLP`) con `forward` y `backward`.
-- `training.py`: training NumPy, `full-batch gradient descent`, `mini-batch`,
-  `Adam`, `L2`, `gradient clipping` y evaluacion por chunks.
-- `experiments.py`: grilla NumPy `MA`-`MP`, guardado/carga de artifacts y
-  seleccion del mejor modelo para `M1`.
-- `torch_models.py`: MLP flexible en PyTorch.
-- `torch_training.py`: training/evaluacion PyTorch.
-- `torch_experiments.py`: pool PyTorch `P4A`-`P4T`, `M2`, `M3` y guardado de
-  resultados.
-- `plots.py`: funciones de graficos usadas por el notebook.
+La tabla `entrega_original/artifacts/point4_test_summary.csv` reporta:
 
-`scripts/` tiene scripts auxiliares. El mas importante es:
+| Modelo | Cross-entropy test | Accuracy test | F1 macro test |
+| --- | ---: | ---: | ---: |
+| M0 · NumPy base | 1,6139 | 0,5762 | 0,3328 |
+| M1 · NumPy mejorado | 0,3168 | 0,8888 | 0,8586 |
+| M2 · PyTorch equivalente | 0,3192 | 0,8879 | 0,8605 |
+| M3 · PyTorch seleccionado | 0,2763 | 0,8993 | 0,8753 |
 
-- `run_point4_artifacts.py`: regenera los artifacts pesados del punto 4
-  (`M2`, pool PyTorch, `M3`, test final y robustness ante noise).
+Son resultados originales guardados, no de un reentrenamiento realizado al completar
+el repositorio. La comparación muestra resultados cercanos entre M1 y M2, y una
+mejora con la arquitectura y regularización seleccionadas para M3.
 
-## Como instalar y abrir
+## Código y resultados
 
-Desde la carpeta del proyecto:
+| Ruta | Función |
+| --- | --- |
+| `src/data.py` | Carga de arrays y split estratificado. |
+| `src/models.py`, `src/training.py` | MLP y entrenamiento NumPy. |
+| `src/experiments.py` | Experimentos y selección de modelos NumPy. |
+| `src/torch_models.py`, `src/torch_training.py`, `src/torch_experiments.py` | Redes, entrenamiento y experimentos PyTorch. |
+| `src/metrics.py`, `src/plots.py` | Métricas y gráficos. |
+| `artifacts/` | Historiales, métricas, tablas y parámetros NumPy ya calculados. |
+| `scripts/run_point4_artifacts.py` | Regeneración de resultados del punto 4. |
+| `entrega_original/` | Copia de la entrega del ZIP, con su propia estructura equivalente. |
 
-```powershell
+Los artifacts compactos permiten revisar resultados sin repetir entrenamientos
+largos. La entrega contiene parámetros de M0/M1; no incluye checkpoints completos
+PyTorch de M2/M3. Para regenerar sus predicciones se requiere reentrenarlos.
+
+## Instalar y abrir
+
+El notebook del ZIP registra **Python 3.14.3**. La entrega incluye versiones exactas
+de las dependencias en su `requirements.txt`, incluida una compilación CPU de PyTorch.
+Se conservaron esas especificaciones sin modificarlas. No se verificó una instalación
+completa de ese entorno durante esta publicación.
+
+Desde la carpeta de la versión elegida —raíz del repositorio o `entrega_original/`—:
+
+```sh
 python -m venv .venv
-.\.venv\Scripts\activate
-python -m pip install --upgrade pip
+```
+
+Activar el entorno:
+
+```powershell
+# Windows PowerShell
+.\.venv\Scripts\Activate.ps1
+```
+
+```sh
+# macOS / Linux
+source .venv/bin/activate
+```
+
+Instalar y abrir el notebook:
+
+```sh
 python -m pip install -r requirements.txt
-python -m ipykernel install --user --name gonzalez_tp3 --display-name "Gonzalez TP3"
-jupyter notebook Entrega_TP3.ipynb
+python -m notebook Entrega_TP3.ipynb
 ```
 
-Si ya existe la `.venv`, alcanza con activarla:
+Mantener `Datasets/`, `src/` y `artifacts/` junto al notebook de la versión elegida.
+Las salidas guardadas pueden leerse sin ejecución; ejecutar las celdas de carga sí
+requiere el dataset. Los flags de reentrenamiento y los comandos originales están
+en el README de cada versión. Recalcular los experimentos puede tardar y reescribe
+artifacts; conviene hacerlo en una copia o rama.
 
-```powershell
-.\.venv\Scripts\activate
-jupyter notebook Entrega_TP3.ipynb
-```
+## Verificación y conservación
 
-## Como volver a entrenar
+Se conservaron los 29 archivos de trabajo del ZIP, junto con la consigna y el ZIP
+original del dataset en la release. Se añadieron documentación, procedencia y
+una figura extraída de una salida guardada del notebook.
 
-Por defecto, el TP viene listo para leer y corregir sin entrenar todo de nuevo.
-Si se quiere regenerar resultados, hay que cambiar algunos flags.
+Se comprobó la sintaxis del código de la entrega, la carga segura de los arrays,
+la cobertura y separación del split y que los parámetros NumPy guardados fueran
+finitos. El gradiente de backpropagation se contrastó con diferencias finitas en
+una red sintética pequeña, con error absoluto máximo inferior a `1e-9`.
+El [registro de verificación](docs/verificacion_basica.json) detalla alcance y entorno.
+No se repitieron entrenamientos de EMNIST ni ejecuciones PyTorch.
 
-### M0
-
-En `Entrega_TP3.ipynb`, buscar:
-
-```python
-FORCE_RETRAIN_M0 = False
-```
-
-Cambiarlo a:
-
-```python
-FORCE_RETRAIN_M0 = True
-```
-
-Eso vuelve a entrenar `M0` con `full-batch gradient descent`.
-
-### Grilla NumPy MA-MP
-
-En `Entrega_TP3.ipynb`, buscar:
-
-```python
-FORCE_RETRAIN_GRID = False
-```
-
-Cambiarlo a:
-
-```python
-FORCE_RETRAIN_GRID = True
-```
-
-Eso vuelve a correr la grilla NumPy `MA`-`MP` definida en
-`src/experiments.py`.
-
-### M1 y finalistas de 100 epochs
-
-El notebook lee estos resultados desde:
-
-```text
-artifacts/finalists_100/finalists_100_summary.csv
-artifacts/m1_history.npz
-artifacts/m1_metrics.npz
-artifacts/m1_parameters.npz
-```
-
-Esos archivos quedan incluidos porque son la decision final de `M1` ya
-consolidada. Para recalcularlos desde cero, hay que usar las configs de
-`src/experiments.py`, correr los finalistas elegidos con `force=True` y volver a
-guardar los archivos `m1_*` y `finalists_100_summary.csv`. No se hace por defecto
-en el notebook para que la correccion no dependa de entrenamientos largos.
-
-### Punto 4: M2, pool PyTorch y M3
-
-Para regenerar el punto 4 completo, correr:
-
-```powershell
-.\.venv\Scripts\python.exe scripts\run_point4_artifacts.py
-```
-
-Ese script entrena/carga:
-
-- `M2`, equivalente PyTorch de `M1`.
-- El pool PyTorch `P4A`-`P4T`.
-- `M3`, elegido desde el mejor candidato del pool.
-- La comparacion final en `test`.
-- La prueba de robustness con Gaussian noise.
-
-Si se quiere obligar el reentrenamiento aunque ya existan artifacts internos,
-abrir `scripts/run_point4_artifacts.py` y cambiar los tres `force=False` de las
-llamadas principales por `force=True`:
-
-```python
-correr_experimento_torch(..., force=True, ...)
-correr_grilla_experimentos_torch(..., force=True, ...)
-correr_experimento_torch(..., force=True, ...)
-```
-
-Al correr ese script pueden aparecer subcarpetas adicionales dentro de
-`artifacts/` (`torch_m2/`, `torch_grid_v1/`, `torch_final/`) y archivos `.pt`.
-No estan incluidos en la version compacta porque el notebook final solo necesita
-los summaries, histories, metrics y matrices guardadas.
-
-
-
+Se mantienen la autoría y la declaración original sobre asistencia en gráficos.
+No se incorpora una licencia adicional sobre los materiales del estudiante o la cátedra.

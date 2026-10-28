@@ -23,3 +23,7 @@ __pycache__/
 Thumbs.db
 .vscode/
 .idea/
+
+# Datos y entorno de la entrega archivada
+entrega_original/Datasets/
+entrega_original/.venv/
